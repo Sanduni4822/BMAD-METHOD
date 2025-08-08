@@ -1,0 +1,27 @@
+{
+  "info": {
+    "name": "BMAD Method API",
+    "_postman_id": "some_unique_id",
+    "description": "BMAD Method API Collection"
+  },
+  "item": [
+    {
+      "name": "Start HR Agent",
+      "request": {
+        "method": "POST",
+        "url": {
+          "raw": "http://localhost:5000/hr/onboarding/email",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "5000",
+          "path": ["hr", "onboarding", "email"]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\"employeeName\": \"John Doe\", \"employeeEmail\": \"johndoe@example.com\"}"
+        }
+      },
+      "response": []
+    }
+  ]
+}
