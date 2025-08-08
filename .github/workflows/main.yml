@@ -25,9 +25,9 @@ jobs:
     - name: Configure AWS credentials
       uses: aws-actions/configure-aws-credentials@v1
       with:
-        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        aws-region: ${{ env.AWS_REGION }}
+        aws-access-key-id: ${ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-region: ${ env.AWS_REGION }}
 
     - name: Login to Amazon ECR
       id: login-ecr
@@ -36,7 +36,7 @@ jobs:
     - name: Build, tag, and push image to Amazon ECR
       id: build-image
       env:
-        ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+        ECR_REGISTRY: ${ steps.login-ecr.outputs.registry }}
       run: |
         docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
@@ -44,7 +44,7 @@ jobs:
     - name: Update Amazon ECS service
       uses: aws-actions/amazon-ecs-deploy-task-definition@v1
       with:
-        task-definition: ${{ env.TASK_DEFINITION_FAMILY }}
-        service: ${{ env.ECS_SERVICE }}
-        cluster: ${{ env.ECS_CLUSTER }}
+        task-definition: ${ env.TASK_DEFINITION_FAMILY }}
+        service: ${ env.ECS_SERVICE }}
+        cluster: ${ env.ECS_CLUSTER }}
         wait-for-service-stability: true
