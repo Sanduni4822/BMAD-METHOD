@@ -10,7 +10,7 @@ env:
   ECR_REPOSITORY: bmad-agent-repo
   ECS_CLUSTER: bmad-cluster
   ECS_SERVICE: bmad-agent-service
-  TASK_DEFINITION_FAMILY: bmad-agent-task-definition
+  TASK_DEFINITION_FAMILY: bmad-agent-task-definition:2
   IMAGE_TAG: latest
 
 jobs:
